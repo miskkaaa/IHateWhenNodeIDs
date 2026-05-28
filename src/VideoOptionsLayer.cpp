@@ -25,21 +25,50 @@ $register_ids(VideoOptionsLayer) {
     auto buttonMenu = mainLayer->getChildByType<cocos2d::CCMenu>(0);
     buttonMenu->setID("buttons-menu");
 
-    setIDSafe<CCMenuItemToggler>(buttonMenu, 0,    "fullscreen-toggle");
-    setIDSafe<CCMenuItemToggler>(buttonMenu, 1,    "borderless-toggle");
-    setIDSafe<CCMenuItemToggler>(buttonMenu, 2,    "fix-toggle");
+    setIDSafe<CCMenuItemToggler>(buttonMenu, 0,     "fullscreen-toggle");
+    setIDSafe<CCMenuItemToggler>(buttonMenu, 1,     "borderless-toggle");
+    setIDSafe<CCMenuItemToggler>(buttonMenu, 2,     "fix-toggle");
 
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 0,"resolution-left-button");
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 1,"resolution-right-button");
+    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 0, "resolution-left-button");
+    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 1, "resolution-right-button");
 
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 2,"texture-left-button");
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 3,"texture-right-button");
+    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 2, "texture-left-button");
+    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 3, "texture-right-button");
 
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 4,"back-button");
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 5,"apply-button");
+    //setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 4, "back-button");
+    //setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 5, "apply-button");
 
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 6,"close-button");
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 7,"advanced-button");
+    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 6, "close-button");
+
+    // setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 7,"advanced-button");
+
+    // BACK BUTTON
+    auto backButton = buttonMenu->getChildByType<CCMenuItemSpriteExtra>(4);
+    auto backButtonSpr = backButton->getChildByType<ButtonSprite>(0);
+    backButton->setID("back-button");
+    backButtonSpr->setID("button-sprite");
+    
+    setIDSafe<ButtonSprite>(backButton, 0,          "button-sprite");
+    setIDSafe<CCLabelBMFont>(backButtonSpr, 0,      "back-label");
+
+    // APPLY BUTTON
+    auto applyButton = buttonMenu->getChildByType<CCMenuItemSpriteExtra>(5);
+    auto applyButtonSpr = applyButton->getChildByType<ButtonSprite>(0);
+    applyButton->setID("apply-button");
+    applyButtonSpr->setID("button-sprite");
+    
+    setIDSafe<ButtonSprite>(applyButton, 0,         "button-sprite");
+    setIDSafe<CCLabelBMFont>(applyButtonSpr, 0,     "apply-label");
+
+    // ADVANCED BUTTON
+
+    auto advancedButton = buttonMenu->getChildByType<CCMenuItemSpriteExtra>(7);
+    auto advancedButtonSpr = advancedButton->getChildByType<ButtonSprite>(0);
+    advancedButton->setID("advanced-button");
+    advancedButtonSpr->setID("button-sprite");
+
+    setIDSafe<ButtonSprite>(advancedButton, 0,      "button-sprite");
+    setIDSafe<CCLabelBMFont>(advancedButtonSpr, 0,  "advanced-label");
     
 }
 

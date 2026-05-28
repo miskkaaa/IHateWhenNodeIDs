@@ -25,9 +25,19 @@ $register_ids(MoreVideoOptionsLayer) {
     setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 1, "info-smoothfix");
     setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 2, "info-showfps");
     setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 3, "info-unlockfps");
-
-    setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 4, "fps-bypass-apply");
+    // setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 4, "fps-bypass-apply");
     setIDSafe<CCMenuItemSpriteExtra>(buttonMenu, 5, "close");
+
+    // APPLY BUTTON
+    auto applyButton = buttonMenu->getChildByType<CCMenuItemSpriteExtra>(4);
+    auto applyButtonSpr = applyButton->getChildByType<ButtonSprite>(0);
+    applyButton->setID("apply-button");
+    applyButtonSpr->setID("button-sprite");
+    
+    setIDSafe<ButtonSprite>(applyButton, 0,         "button-sprite");
+    setIDSafe<CCLabelBMFont>(applyButtonSpr, 0,     "apply-label");
+
+    
 
     auto labelLayer = mainLayer->getChildByType<cocos2d::CCLayer>(1);
     labelLayer->setID("label-layer");
@@ -37,8 +47,6 @@ $register_ids(MoreVideoOptionsLayer) {
     setIDSafe<CCLabelBMFont>(labelLayer, 2,         "showfps-label");
     setIDSafe<CCLabelBMFont>(labelLayer, 3,         "unlockfps-label");
 
-    auto fpsInput = mainLayer->getChildByType<CCTextInputNode>(0);
-    fpsInput->setID("fps-input");
 }
 
 struct MoreVideoOptionsLayerIDs : Modify<MoreVideoOptionsLayerIDs, MoreVideoOptionsLayer> {
